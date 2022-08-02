@@ -1,0 +1,108 @@
+linux commands 
+*cat >filename  in that file create and data you can add
+*tac filename -> show file data below line up and up line in last.
+*cat file1 file2 >file3 -> in that file1 and fil2 data will create new file with that data
+*-> to copy data from file1 to file 2 ex. cat file1 >file2
+*check data in file use cat
+
+*time stat change it will change file acess,modify,change, time (for updating time)
+ stat file1
+ touch -a file2 -> it will change Acess time
+ touch -m file2 -> it will change modify time   after that use stat filename to check 
+
+ls -a  for hidden files 
+ls -l ,ll  listing of files
+for rename use mv  file1   rename name 
+-rmdir -p dir1/dir2
+-pwd for path
+-hostname -> machine name and version 
+-if config -> ip address of machine ,ethernetport,
+-hostname -i only for ip
+-cat /etc/os-release  os all detail
+-service httpd status . to check status of service
+-chkconfig httpd on/off- whenever you on your service it automatically start
+-yum list installed to list all installed service package 
+-which service/softwarename  , it will give idea that software or service install or not
+-echo "hello" output hello
+-sort -> alphabatical order me arrange
+
+
+- useradd   to see cat /etc/passwd   (user bnane pe group bnta automatic)
+-groupadd to see  cat /etc/group   
+-gpasswd -a (for add one user use -a) groupname  . so user will add to group
+-gpasswd -M ajay,sameer,vijay groupname  (all user will added to group with this command)
+
+HARDLINK SOFTLINK
+-ln (link) hardlink (hardlink for backup)
+-ln -s (softlink) (shortcut)  we can create shortcut of file or dir 
+
+Q1. i have to create shortcut of file1 as a name of softfile1 ?
+ex for softlink -> ln -s file1  softfile1 
+         to check  ls -l  it will look like (softfile1 > file1)
+
+-Hardlink is for crating backup of file. if i delete my file hard link will not delete.and when i create hardlink and after i will add data in my file it will
+  automatic update on hardlink(backup), once it created .
+
+Q2. i have to do backup of file1 as a name of backupfile2
+ # ln file2 backupfile2
+ # ls 
+
+-tar (tape archive) ->(zip) group of multipe file and crate single file     
+ # tar -cvf  dirx.tar dirx(this file we want to tar)
+        c-create
+  #ls  
+   dir.tar dirx
+-zip(compress)
+ #gzip dir.tar
+ #ls -l
+  dir.targz
+NOW RECIEVER SIDE 
+ to unzip
+ # gunzip dir.tar.gz
+  #ls -l
+   dir.tar
+now extract
+ #tar -xvf dir.tar
+       x(extract)
+ #ls -l
+   dir
+
+-wget -> we use to download any file  (non interactive)
+  #wget <url>
+
+
+
+Acess permission 
+r=read->to display content
+w=write-> to modify file
+x=execute-> to execute file 
+
+-rwxr_xr__    1             root           root           0             july01 04/02      hello.txt
+f u   g  o symboliclink   owner filr/dir   group   filesize in bytes    date   time filename
+directory symbolic link is 2 and file 1 
+
+   -    rwx     rwx    rwx       permission 3 ko
+  file  owner  group   others    ko permission
+
+r = 4     rwx    r_x     r__
+w = 2      o      g       0
+x = 1     4+2+1  4+0+1  4+0+0 
+            7      5      4    (754) permission for user,group,other.
+
+    if permission  (536)
+     soln    5 for user 3 for group and 6 for other
+    permission is for user r_x ,group _wx, other rw_
+
+ or other way to give permission or remove 
+   (+,-,= )
+   u = user/owner      ex. r__ rwx _wx
+   g = group      chmod    u-wx,g+w,0=wx file1
+   o = other
+
+-chown  (to change owner of directory or file )
+ # chown abhiselh file1/dir 
+-chgrp (to change group of dir or file)
+ #chgrp aws file1/dir
+
+
+
